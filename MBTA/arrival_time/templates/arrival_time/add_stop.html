@@ -1,0 +1,17 @@
+{% extends "arrival_time/layout.html" %}
+
+{% block body %}
+
+<h1> Add a Stop: </h1>
+
+  <form action="{% url 'save-stop' %}" method= "post">
+    {% csrf_token %}
+
+    {{ create_listing_form }}
+
+    <input type="submit">
+
+  </form>
+
+
+{% endblock %}

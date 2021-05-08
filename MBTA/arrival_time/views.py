@@ -10,7 +10,11 @@ from .models import User
 # Create your views here.
 
 def index(request):
-    return render(request, "arrival_time/index.html")
+    stops = request.user.tracking.all()
+
+    return render(request, "arrival_time/index.html", {
+        "stops": stops
+    })
 
 # Copied from Project 4
 def login_view(request):

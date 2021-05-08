@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(Math.floor(prediction/60000));
         console.log(data);
 
-        
+        // need way to pick the correct stop 
         document.querySelector('#arrival-time').innerHTML = time
     });
 
