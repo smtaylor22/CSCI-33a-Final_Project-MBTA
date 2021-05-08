@@ -1,0 +1,45 @@
+{% extends "arrival_time/layout.html" %}
+
+{% block body %}
+
+<!-- Create a container to hold and display all the data associated with a saved stop-->
+<div class="stop-container">
+    <!-- Create a div container to put in stop metadata-->
+  <div class="stop-metadata">
+    {{ stop.name }}
+    <br>
+    {{ stop.line }}
+    <!-- stop destination -->
+    <!-- and/or route Direction -->
+  </div>
+
+  <div class="arrival-time">
+    <h3> Predicted Arrival Time: </h3>
+    <i id="prediction"> </i> 
+  </div>
+
+  <div class="comments">
+    <h3> Stop Comments </h3>
+    
+    <form action="{% url 'comment' stop.id %}" method="post">
+        {% csrf_token %}
+        <input type="text" class="form-control" placeholder="Comment on this Stop" name="comment" >
+        <input class="btn-sm btn-primary" type="Submit" value="Comment">
+      </form>
+      
+      {% for comment in comments%}
+        <div class="user-comment">
+          {{ comment.author }}
+          <br>
+          {{ comment.date_created }} 
+          <br>
+          {{ comment.text }}
+        </div>
+      {% endfor %}
+      
+   
+  </div>
+
+
+
+{% endblock %}

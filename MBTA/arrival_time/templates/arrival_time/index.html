@@ -11,7 +11,8 @@
   <div class="stop-container">
       <!-- Create a div container to put in stop metadata-->
     <div class="stop-metadata">
-      {{ stop.name }}
+      <a href="{% url 'stop' stop.id %}"><strong>{{ stop.name }}</strong></a><br>
+      <br>
       {{ stop.line }}
       <!-- stop destination -->
       <!-- and/or route Direction -->
@@ -21,24 +22,7 @@
       <h3> Predicted Arrival Time: </h3>
       <i id="prediction"> </i> 
     </div>
-      
-
-    <div class="comments">
-      <h3> Stop Comments </h3>
-        
-        {% for comment in comments%}
-          <div class="user-comment">
-            {{ comment.author }}
-            {{ comment.date_created }}
-            {{ comment.text }}
-          </div>
-        {%% endfor}
-
-        <div id="buttons">
-          <button class="btn btn-sm btn-outline-primary" id="archive">Comment</button>
-        </div>
-    </div>
-
+    
   </div>
 {% endfor %}
 

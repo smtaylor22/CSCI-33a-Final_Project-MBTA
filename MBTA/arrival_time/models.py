@@ -20,6 +20,9 @@ class Stop(models.Model):
     def __str__(self):
         return f"{self.name} - {self.line}"
 
+    
+
+
 # Comments - User comments and info associated with a Stop
 class Comment(models.Model):
     # Text for comments - removes requirement for comments
@@ -29,4 +32,5 @@ class Comment(models.Model):
     stop = models.ForeignKey("Stop", on_delete=models.CASCADE, related_name="comments")
     
     def __str__(self):
-        return self.content
+        return f"{self.author}"
+

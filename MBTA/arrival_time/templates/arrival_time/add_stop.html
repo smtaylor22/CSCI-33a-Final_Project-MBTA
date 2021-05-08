@@ -4,14 +4,17 @@
 
 <h1> Add a Stop: </h1>
 
-  <form action="{% url 'save-stop' %}" method= "post">
+
+
+  <form action="{% url 'save-stop' %}" method="post">
     {% csrf_token %}
+    <div class="form-group">
+      <label for="searchStop">Stop Name</label>
+      <input type="text" name="stop" class="form-control" id="searchStop" aria-describedby="searchHelp" placeholder="Enter Stop Name">
+      <small id="searchHelp" class="form-text text-muted">Search for a bus or train stop you use every day to add to your favorites.</small>
+    </div>
 
-    {{ create_listing_form }}
-
-    <input type="submit">
-
+    <button type="submit" class="btn btn-primary">Search</button>
   </form>
-
 
 {% endblock %}
