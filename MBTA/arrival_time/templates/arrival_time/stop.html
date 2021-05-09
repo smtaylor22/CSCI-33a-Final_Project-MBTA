@@ -3,7 +3,7 @@
 {% block body %}
 
 <!-- Create a container to hold and display all the data associated with a saved stop-->
-<div class="stop-container">
+<div class="stop-info">
     <!-- Create a div container to put in stop metadata-->
   <div class="stop-metadata">
     {{ stop.name }}
@@ -14,12 +14,12 @@
   </div>
 
   <div class="arrival-time">
-    <h3> Predicted Arrival Time: </h3>
-    <i id="prediction"> </i> 
+    <i> Predicted Arrival Time: </i>
+    <strong id="prediction"> 22 minutes</strong>
   </div>
 
   <div class="comments">
-    <h3> Stop Comments </h3>
+    <h5> Stop Comments </h5>
     
     <form action="{% url 'comment' stop.id %}" method="post">
         {% csrf_token %}

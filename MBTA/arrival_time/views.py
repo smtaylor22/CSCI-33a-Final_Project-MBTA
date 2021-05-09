@@ -47,15 +47,12 @@ def display_stop(request, stop_id):
 def save_stop(request):
      # Check for Post Request when saving a new stop
     if request.method == "POST":
-        # pk=int(request.POST["stop"])
-        stop = get_object_or_404(Stop, name="Malden Center")
+        stop = get_object_or_404(Stop, name=request.POST["stop"])
         request.user.tracking.add(stop)
-        #stop.tracking = User.objects.get(pk=request.user.id)
-        #stop.save()
         return HttpResponseRedirect(reverse("index"))
 
     else:
-        # Default behavior to load the posts
+        # Default behavior to load the add stop page
         return render(request, "arrival_time/add_stop.html")
 
 # Copied from Project 4

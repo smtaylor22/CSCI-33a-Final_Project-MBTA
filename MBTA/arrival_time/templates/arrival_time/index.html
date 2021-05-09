@@ -3,12 +3,14 @@
 {% block body %}
 
 
+<div>
+  <h1> Your Saved Stops...</h1>
+</div>
 
-<h1> Your Saved Stops...</h1>
-
-{% for stop in stops %}
+<div class="grid"> 
+  {% for stop in stops %}
   <!-- Create a container to hold and display all the data associated with a saved stop-->
-  <div class="stop-container">
+  <div class="stop-container grid-item">
       <!-- Create a div container to put in stop metadata-->
     <div class="stop-metadata">
       <a href="{% url 'stop' stop.id %}"><strong>{{ stop.name }}</strong></a><br>
@@ -19,12 +21,14 @@
     </div>
 
     <div class="arrival-time">
-      <h3> Predicted Arrival Time: </h3>
-      <i id="prediction"> </i> 
+      <i> Predicted Arrival Time: </i>
+      <strong id="prediction"> 22 minutes</strong>
     </div>
     
   </div>
 {% endfor %}
+</div>
+
 
 
 {% endblock %}
