@@ -4,17 +4,55 @@
 
 <h1> Add a Stop: </h1>
 
+<div>
+  <p>
+    Choose your Line and Line Destination and Favorite Stop
+  </p>
+</div>
+
+<div class="box">
+  <form action="{% url 'save-stop' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="searchLine">Line</label>
+      <input type="text" name="line" class="form-control" id="searchLine" aria-describedby="searchLine" placeholder="Enter Line Name">
+      <small id="searchHelp" class="form-text text-muted">What Line is your favorite stop on?</small>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+
+</div>
+
+<div class="box">
+  <form action="{% url 'save-stop' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="searchLineDestination">Line Destination</label>
+      <input type="text" name="destination" class="form-control" id="searchLineDestination" aria-describedby="searchLineDestination" placeholder="Enter Destination Name">
+      <small id="searchHelp" class="form-text text-muted">Which line destination/direction do you want?</small>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+
+</div>
 
 
+<div class="box">
+  
   <form action="{% url 'save-stop' %}" method="post">
     {% csrf_token %}
     <div class="form-group">
       <label for="searchStop">Stop Name</label>
       <input type="text" name="stop" class="form-control" id="searchStop" aria-describedby="searchHelp" placeholder="Enter Stop Name">
-      <small id="searchHelp" class="form-text text-muted">Search for a bus or train stop you use every day to add to your favorites.</small>
+      <small id="searchHelp" class="form-text text-muted">Search for available stops along the line you chose.</small>
     </div>
 
     <button type="submit" class="btn btn-primary">Search</button>
   </form>
+
+</div>
+  
 
 {% endblock %}

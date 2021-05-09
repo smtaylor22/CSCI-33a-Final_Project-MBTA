@@ -10,7 +10,7 @@
 <div class="grid"> 
   {% for stop in stops %}
   <!-- Create a container to hold and display all the data associated with a saved stop-->
-  <div class="stop-container grid-item">
+  <div class="box grid-item">
       <!-- Create a div container to put in stop metadata-->
     <div class="stop-metadata">
       <a href="{% url 'stop' stop.id %}"><strong>{{ stop.name }}</strong></a><br>

@@ -43,7 +43,6 @@ def display_stop(request, stop_id):
     })
 
 
-
 def save_stop(request):
      # Check for Post Request when saving a new stop
     if request.method == "POST":

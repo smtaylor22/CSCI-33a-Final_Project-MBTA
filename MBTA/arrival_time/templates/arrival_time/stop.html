@@ -3,7 +3,7 @@
 {% block body %}
 
 <!-- Create a container to hold and display all the data associated with a saved stop-->
-<div class="stop-info">
+<div class="box">
     <!-- Create a div container to put in stop metadata-->
   <div class="stop-metadata">
     {{ stop.name }}
@@ -18,7 +18,9 @@
     <strong id="prediction"> 22 minutes</strong>
   </div>
 
-  <div class="comments">
+</div>
+
+  <div class="box">
     <h5> Stop Comments </h5>
     
     <form action="{% url 'comment' stop.id %}" method="post">
@@ -26,9 +28,11 @@
         <input type="text" class="form-control" placeholder="Comment on this Stop" name="comment" >
         <input class="btn-sm btn-primary" type="Submit" value="Comment">
       </form>
-      
-      {% for comment in comments%}
-        <div class="user-comment">
+</div> 
+
+
+        {% for comment in comments%}
+        <div class="box">
           {{ comment.author }}
           <br>
           {{ comment.date_created }} 
@@ -37,8 +41,9 @@
         </div>
       {% endfor %}
       
+      
    
-  </div>
+
 
 
 
