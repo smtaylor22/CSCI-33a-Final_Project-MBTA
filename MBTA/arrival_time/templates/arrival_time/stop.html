@@ -2,6 +2,9 @@
 
 {% block body %}
 
+<h1 class="heading"> Stop Info: </h1>
+
+
 <!-- Create a container to hold and display all the data associated with a saved stop-->
 <div class="box">
     <!-- Create a div container to put in stop metadata-->
@@ -21,24 +24,28 @@
 </div>
 
   <div class="box">
-    <h5> Stop Comments </h5>
-    
+    <h5 clas="heading"> Add a Comment </h5>
     <form action="{% url 'comment' stop.id %}" method="post">
+      <div class="form-group">
         {% csrf_token %}
-        <input type="text" class="form-control" placeholder="Comment on this Stop" name="comment" >
-        <input class="btn-sm btn-primary" type="Submit" value="Comment">
+        <input type="text" class="form-control" placeholder="Comment on this Stop" name="comment">
+      </div>
+        <button class="btn-sm btn-primary" type="Submit">Comment</button>
       </form>
-</div> 
+  </div> 
 
+  <div>
+    <h5 class="heading"> Stop Comments </h5>
+  </div>
 
-        {% for comment in comments%}
-        <div class="box">
-          {{ comment.author }}
-          <br>
-          {{ comment.date_created }} 
-          <br>
-          {{ comment.text }}
-        </div>
+      {% for comment in comments%}
+      <div class="box">
+        {{ comment.author }}
+        <br>
+        {{ comment.date_created }} 
+        <br>
+        {{ comment.text }}
+      </div>
       {% endfor %}
       
       

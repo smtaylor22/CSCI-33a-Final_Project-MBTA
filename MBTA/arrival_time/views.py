@@ -11,9 +11,10 @@ from .models import User, Stop, Comment
 
 
 def index(request):
-
-    stops = request.user.tracking.all()
-
+    try:
+        stops = request.user.tracking.all()
+    except:
+        return render(request, "arrival_time/index.html")
     return render(request, "arrival_time/index.html", {
         "stops": stops
     })

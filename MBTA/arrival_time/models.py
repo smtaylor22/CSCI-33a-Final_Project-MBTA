@@ -14,11 +14,12 @@ class Stop(models.Model):
     name = models.CharField(max_length=255)
     # Associated line with Stop (eg. Subway: Red line, Bus: 70)
     line = models.CharField(max_length=255)
-    # Attribute to track the direction 
-    # Attribute to track the destination
+    # Attribute to track the direction or end destination of the route for the stop
+    direction = models.CharField(max_length=255)
+
     
     def __str__(self):
-        return f"{self.name} - {self.line}"
+        return f"{self.name} - {self.line} - {self.direction}"
 
     
 
@@ -32,5 +33,5 @@ class Comment(models.Model):
     stop = models.ForeignKey("Stop", on_delete=models.CASCADE, related_name="comments")
     
     def __str__(self):
-        return f"{self.author}"
+        return f"{self.author} - {self.text}"
 
