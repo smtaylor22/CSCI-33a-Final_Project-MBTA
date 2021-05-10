@@ -5,8 +5,10 @@ from django.db import models
 # Create your models here.
 
 class User(AbstractUser):
+    # Many to many relationship for Users to track their favorite stops
     tracking = models.ManyToManyField("Stop", related_name="tracked_stations")
 
+# Save relevant info on users stops they track
 class Stop(models.Model):
     # MBTA stop id associated with stop ---- so can querry for this stop prediction later 
     mbta_id = models.IntegerField()
@@ -17,14 +19,13 @@ class Stop(models.Model):
     # Attribute to track the direction or end destination of the route for the stop
     direction = models.CharField(max_length=255)
 
-    
     def __str__(self):
         return f"{self.name} - {self.line} - {self.direction}"
 
     
 
 
-# Comments - User comments and info associated with a Stop
+# Comments on stops
 class Comment(models.Model):
     # Text for comments - removes requirement for comments
     text = models.TextField(blank=True)

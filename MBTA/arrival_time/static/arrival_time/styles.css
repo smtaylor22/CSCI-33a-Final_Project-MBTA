@@ -1,26 +1,33 @@
 
+/* Create a grid in the DOM to place elements in */
+/* Allows items to wrap onto multiple lines */
+/* Add some gaps between items */
 .grid {
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
     grid-column-gap: 20px;
     grid-row-gap: 10px;
-
 }
 
+/* Define width of grid items. Style grid items with border, margin, and padding*/
 .grid-item {
-    border: 1px;
+    border: 1px solid black;
     padding: 20px;
     text-align: left;
     width: 200px;
+    margin: 10px;
 }
 
+/* Put a box around forms and stop comments */
 .box {
     padding: 10px;
     border: 1px solid black;
     margin: 10px
 }
 
+/* Align large heading text elements etc on the left */
 .heading {
     margin-left: 10px;
 }
+

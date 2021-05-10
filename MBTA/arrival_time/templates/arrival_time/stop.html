@@ -6,14 +6,15 @@
 
 
 <!-- Create a container to hold and display all the data associated with a saved stop-->
-<div class="box">
+<div class="grid-item">
     <!-- Create a div container to put in stop metadata-->
   <div class="stop-metadata">
     {{ stop.name }}
     <br>
     {{ stop.line }}
-    <!-- stop destination -->
-    <!-- and/or route Direction -->
+    <br>
+    {{ stop.direction }}
+
   </div>
 
   <div class="arrival-time">
@@ -25,6 +26,7 @@
 
   <div class="box">
     <h5 clas="heading"> Add a Comment </h5>
+    <!-- Copied from https://getbootstrap.com/docs/4.0/components/forms/-->
     <form action="{% url 'comment' stop.id %}" method="post">
       <div class="form-group">
         {% csrf_token %}

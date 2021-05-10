@@ -10,49 +10,40 @@
   </p>
 </div>
 
+<!-- Copied from https://getbootstrap.com/docs/4.0/components/forms/-->
 <div class="box">
   <form action="{% url 'save-stop' %}" method="post">
     {% csrf_token %}
     <div class="form-group">
       <label for="searchLine">Line</label>
-      <input type="text" name="line" class="form-control" id="searchLine" aria-describedby="searchLine" placeholder="Enter Line Name">
+      <input type="text" name="line" class="form-control" id="searchLine" aria-describedby="searchLine" placeholder="e.g. Red line or 70">
       <small id="searchHelp" class="form-text text-muted">What Line is your favorite stop on?</small>
     </div>
-  
-    <button type="submit" class="btn btn-primary">Search</button>
   </form>
 
-</div>
-
-<div class="box">
   <form action="{% url 'save-stop' %}" method="post">
     {% csrf_token %}
     <div class="form-group">
       <label for="searchLineDestination">Line Destination</label>
-      <input type="text" name="destination" class="form-control" id="searchLineDestination" aria-describedby="searchLineDestination" placeholder="Enter Destination Name">
-      <small id="searchHelp" class="form-text text-muted">Which line destination/direction do you want?</small>
+      <input type="text" name="destination" class="form-control" id="searchLineDestination" aria-describedby="searchLineDestination" placeholder="e.g. Alewife or Western Ave/Litchfield St">
+      <small id="searchHelp" class="form-text text-muted">Toward which direction does the train or bus depart from your stop?</small>
     </div>
-  
-    <button type="submit" class="btn btn-primary">Search</button>
   </form>
 
-</div>
-
-
-<div class="box">
-  
   <form action="{% url 'save-stop' %}" method="post">
     {% csrf_token %}
     <div class="form-group">
       <label for="searchStop">Stop Name</label>
-      <input type="text" name="stop" class="form-control" id="searchStop" aria-describedby="searchHelp" placeholder="Enter Stop Name">
-      <small id="searchHelp" class="form-text text-muted">Search for available stops along the line you chose.</small>
+      <input type="text" name="stop" class="form-control" id="searchStop" aria-describedby="searchHelp" placeholder="e.g. Park Street or University Park">
+      <small id="searchHelp" class="form-text text-muted">What's the name of your favorite stop along this route? </small>
     </div>
-
-    <button type="submit" class="btn btn-primary">Search</button>
   </form>
 
+  <button type="submit" class="btn btn-primary">Search</button>
 </div>
+
+
+  
   
 
 {% endblock %}

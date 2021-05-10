@@ -8,37 +8,44 @@
 </div>
 
 <!-- Refrenced Stack Overflow for checking for empty Django querry set https://stackoverflow.com/questions/1387727/checking-for-empty-queryset-in-django -->
-{% if user.is_authenticated and not stops %}
-
+{% if user.is_authenticated == False %}
+  <a  class="heading" href="{% url 'login' %}">Login to track your favorite stops!</a>
+{% elif not stops%}
   <div>
     <p class="heading">You have no saved stops.</p>
     <a class="heading" href="{% url 'search' %}">Click here to add a stop!</a>    
   </div>
-  
-
-{% else %}
-  <a  class="heading" href="{% url 'login' %}">Login to track your favorite stops</a>
-  {% endif %}
+{% endif %}
 
 <div class="grid"> 
   {% for stop in stops %}
   <!-- Create a container to hold and display all the data associated with a saved stop-->
-  <div class="box grid-item">
+  <div class="grid-item">
       <!-- Create a div container to put in stop metadata-->
     <div class="stop-metadata">
       <a href="{% url 'stop' stop.id %}"><strong>{{ stop.name }}</strong></a><br>
       <br>
       {{ stop.line }}
-      <!-- stop destination -->
-      <!-- and/or route Direction -->
+      <br>
+      to {{ stop.direction }}
     </div>
 
-    <div class="arrival-time">
-      <i> Predicted Arrival Time: </i>
-      <strong id="prediction"> 22 minutes</strong>
+    <div data-stop="{{ stop.id }}" class="arrival-time">
+      <i> Predicted Arrival Times: </i>
+      <strong id="prediction"></strong>
     </div>
-    
-  </div>
+  
+  {% comment %} 
+    <!-- if there is an alert or delay-->
+    {% if message in stop %}
+    <!-- Show alert button. Link to stop page to show more info --> 
+    <p> Alert from MBTA: </p>
+    <!-- {% message %}-->
+   {% endif %}
+  {% endcomment %}
+  
+
+</div>
 {% endfor %}
 </div>
 
