@@ -32,3 +32,5 @@ These urls querry predicted times on the stops that are also saved in the databa
 I created a separate html file for adding stops. This way it keeps the default view index.html clean and easy to see the important information. 
 
 I created an html page for each stop. The comments for stops are also displayed here. This keeps the index.html page less busy. If users want to see comments on stops they can go to the specific stop page. 
+
+<img width="1448" alt="Screen Shot 2022-05-02 at 5 57 51 PM" src="https://user-images.githubusercontent.com/47441158/166334123-affac89b-5e67-4c75-9ac9-eee58dfb6307.png">
